@@ -33,5 +33,5 @@ function vipNumber() {
     document.getElementById("demo").innerHTML = (`Yay! Your ID number is #${getNumberYouth}.`)
   }
 
-  yourAge.addEventListener("input", raceNumber());
+  yourAge.addEventListener("input", vipNumber());
 }
