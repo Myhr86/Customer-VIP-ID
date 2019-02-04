@@ -16,7 +16,7 @@ var regEarly = n;
 
 
 
-function raceNumber() {
+function vipNumber() {
   var runnerAge = yourAge.value;
   if (runnerAge >= 18 && regEarly < 11) {
     getNumberOldAndEarly += 200;
