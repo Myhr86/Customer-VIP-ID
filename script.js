@@ -1,6 +1,14 @@
 var yourAge = document.getElementById("ageInput");
 
-var getNumber = Math.floor(Math.random() * 1000);
+var youthLower = 601;
+var youthUpper = 1000;
+var oldEarlyLower = 0;
+var oldEarlyUpper = 200;
+var oldLateLower = 201;
+var oldLateUpper = 600;
+var getNumberYouth = Math.floor(Math.random() * (youthUpper - youthLower)) + youthLower;
+var getNumberOldAndEarly = Math.floor(Math.random() * (oldEarlyUpper - oldEarlyLower)) + oldEarlyLower;
+var getNumberOldAndLate = Math.floor(Math.random() * (oldLateUpper - oldLateLower)) + oldLateLower;
 
 var d = new Date();
 var n = d.getHours();
@@ -11,16 +19,18 @@ var regEarly = n;
 function raceNumber() {
   var runnerAge = yourAge.value;
   if (runnerAge >= 18 && regEarly < 11) {
-    getNumber += 1000;
+    getNumberOldAndEarly += 200;
+    getNumberOldAndLate += 600;
+    getNumberYouth += 1000;
   }
   if (runnerAge >= 18 && regEarly < 11) {
-    document.getElementById("demo").innerHTML = (`Hurray! You get the Gold Member ID, with the number #${getNumber}.`);
+    document.getElementById("demo").innerHTML = (`Hurray! You get the Gold Member ID, with the number #${getNumberOldAndEarly}.`);
   }
   else if (runnerAge >= 18 && regEarly > 10) {
-    document.getElementById("demo").innerHTML = (`Your Silver ID number is #${getNumber}. Congratulations!`);
+    document.getElementById("demo").innerHTML = (`Your Silver ID number is #${getNumberOldAndLate}. Congratulations!`);
   }
   else if (runnerAge < 18) {
-    document.getElementById("demo").innerHTML = (`Yay! Your ID number is #${getNumber}.`)
+    document.getElementById("demo").innerHTML = (`Yay! Your ID number is #${getNumberYouth}.`)
   }
 
   yourAge.addEventListener("input", raceNumber());
