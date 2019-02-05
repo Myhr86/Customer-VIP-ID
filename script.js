@@ -6,13 +6,31 @@ var oldEarlyLower = 0;
 var oldEarlyUpper = 200;
 var oldLateLower = 201;
 var oldLateUpper = 600;
+
 var getNumberYouth = Math.floor(Math.random() * (youthUpper - youthLower)) + youthLower;
 var getNumberOldAndEarly = Math.floor(Math.random() * (oldEarlyUpper - oldEarlyLower)) + oldEarlyLower;
 var getNumberOldAndLate = Math.floor(Math.random() * (oldLateUpper - oldLateLower)) + oldLateLower;
 
 var d = new Date();
 var n = d.getHours();
+
 var regEarly = n;
+
+function clock() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  m = checkTime(m);
+  document.getElementById("showTime").innerHTML = "Time: " + h +  ":" + m;
+  var t = setTimeout(clock, 500);
+}
+
+clock();
+
+function checkTime(i) {
+  if(i <10) {i = "0" + i};
+  return i;
+}
 
 
 
